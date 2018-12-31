@@ -11,8 +11,10 @@ git clone
 ### Prerequisites
 
 All projects are Spring Boot projects, and generate uberjars. The projects need maven installed, so mvn install can build the executable fatjar. It also assumes that you have a gcp project (with billing enabled) created and setup.
-Run the following commands to ensure.
+Run the following commands to create a topic and corresponding pull subscription.
 ```
+ gcloud pubsub topics create <topic name>
+ gcloud pubsub subscriptions create <subscription name> --topic <topic name from before>
 ```
 
 ### Installing
@@ -22,7 +24,7 @@ mvn install
 ```
 
 
-This builds the application as an uber jar.
+This builds the application as a runnable uberjar `pubsub-1.0-SNAPSHOT.jar`.
 
 
 ## Deployment
