@@ -1,0 +1,24 @@
+application:
+  name: com.crajas.gcpsamples.springpubsub
+gcp:
+  project-id: ${PROJECT_ID}
+  pubsub:
+    subscriber:
+      queue-depth: 100
+      subscription: ${SUBSCRIPTION_ID}
+      private-key-file: ${PRIVATE_KEY_FILE}
+    topic: ${TOPIC_NAME}
+
+server:
+  port: 8180
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
+    path: /temp/applogs/pubsub
+  file:
+    main:
+      rollingPolicy:
+        maxIndex: 10
+      triggeringPolicy:
+          maxFileSize: 75MB
