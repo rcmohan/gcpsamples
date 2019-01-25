@@ -21,6 +21,7 @@
 		<java.version>1.8</java.version>
 		<spring-cloud-gcp.version>1.0.0.RELEASE</spring-cloud-gcp.version>
 		<spring-boot-release.version>2.1.1.RELEASE</spring-boot-release.version>
+		<io.opencensus.version>0.18.0</io.opencensus.version>
 	</properties>
 
 
@@ -33,6 +34,8 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
@@ -51,17 +54,63 @@
 			<artifactId>activation</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-pubsub -->
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-pubsub</artifactId>
-			<version>1.56.0</version>
+			<version>1.60.0</version>
 		</dependency>
 		
-		<!-- 
-		    TEST DEPENDENCIES
-		 -->
-		
+		<dependency>
+			<groupId>io.opencensus</groupId>
+			<artifactId>opencensus-api</artifactId>
+			<version>${io.opencensus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.opencensus</groupId>
+			<artifactId>opencensus-exporter-trace-stackdriver</artifactId>
+			<version>${io.opencensus.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.grpc</groupId>
+					<artifactId>grpc-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>io.opencensus</groupId>
+			<artifactId>opencensus-impl-lite</artifactId>
+			<version>${io.opencensus.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.grpc/grpc-all -->
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-core</artifactId>
+			<version>1.16.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>27.0.1-jre</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+		</dependency>
+		<!-- TEST DEPENDENCIES -->
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

@@ -11,6 +11,7 @@ gcp:
 
 server:
   port: 8180
+
 logging:
   level:
     root: INFO

@@ -15,8 +15,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.crajas.gcpsamples.pubsub.StackdriverTraceConfig;
 import com.crajas.gcpsamples.pubsub.adapter.Listener;
 import com.crajas.gcpsamples.pubsub.adapter.PubsubAdapter;
+
+import io.opencensus.common.Scope;
+import io.opencensus.trace.Tracer;
+import io.opencensus.trace.Tracing;
 /**
  * REST endpoint that exposes a service to push messages to a topic.
  * The application expects the following configuration in application.yml 
@@ -38,9 +43,17 @@ gcp:
 @Component
 public class MessageService {
 
+	/*
+	 * OpenCensus Tracer
+	 */
+	private static final Tracer tracer = Tracing.getTracer();
+
 	@Autowired
 	private PubsubAdapter messagingGateway;
 
+	@Autowired
+	private StackdriverTraceConfig sdtConfig;
+	
 	@Value("${gcp.project-id}")
 	private String projectName;
 
@@ -58,11 +71,19 @@ public class MessageService {
 	public void init() throws IOException, GeneralSecurityException {
 		this.listener = new Listener(projectName, subscriptionName);
 		this.executor.submit(this.listener);
+		tracer.getCurrentSpan().addAnnotation("Construction done");
 	}
 
 	@POST
 	public Response publishMessage(@RequestParam("message") String message) {
-		messagingGateway.pushWithGCPLibs(projectName, topicName, message);
+		String spanName = this.getClass().getSimpleName();
+		try (Scope ss = sdtConfig.startSpan(spanName)) {
+
+			messagingGateway.pushWithGCPLibs(projectName, topicName, message);
+			
+			tracer.getCurrentSpan().addAnnotation("Finished posting messages");
+		}
 		return Response.ok().build();
 	}
+
 }
