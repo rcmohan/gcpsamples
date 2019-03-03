@@ -1,0 +1,33 @@
+application:
+  name: com.crajas.gcpsamples.pubsub
+gcp:
+  project-id: ${PROJECT_ID}
+
+server:
+  port: 8180
+
+spring:
+  cloud:
+    gcp:
+      trace:
+        enabled: true
+  sleuth:
+    traceId128: true
+    web:
+      skipPattern: (^cleanup.*|.+favicon.*)
+    sampler:
+      probability: 1
+
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
+    path: /temp/applogs/pubsub
+  pattern:
+    level: "[%X{X-B3-TraceId}/%X{X-B3-SpanId}] %-5p [%t] %C{2} - %m%n"
+  file:
+    main:
+      rollingPolicy:
+        maxIndex: 10
+      triggeringPolicy:
+          maxFileSize: 75MB

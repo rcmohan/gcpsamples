@@ -1,0 +1,81 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "MTPmtgEACAAJ",
+   "etag": "j2znkaY8+oY",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/MTPmtgEACAAJ",
+   "volumeInfo": {
+    "title": "Educated",
+    "authors": [
+     "Tara Westover"
+    ],
+    "publisher": "Windmill Books",
+    "publishedDate": "2018-11",
+    "description": "'An amazing story, and truly inspiring. The kind of book everyone will enjoy. IT'S EVEN BETTER THAN YOU'VE HEARD.' - Bill Gates Selected as a book of the year in THE TIMES, SUNDAY TIMES, GUARDIAN, NEW YORK TIMES, THE ECONOMIST, NEW STATESMAN, VOGUE, IRISH TIMES, IRISH EXAMINER and RED MAGAZINE AMAZON.COM's BEST BOOK OF THE YEAR ________________________ Tara Westover and her family grew up preparing for the End of Days but, according to the government, she didn't exist. She hadn't been registered for a birth certificate. She had no school records because she'd never set foot in a classroom, and no medical records because her father didn't believe in hospitals. As she grew older, her father became more radical and her brother more violent. At sixteen, Tara knew she had to leave home. In doing so she discovered both the transformative power of education, and the price she had to pay for it. ________________________ · Shortlisted for the 2018 BAMB Readers' Awards · Recommended as a summer read by Barack Obama, Antony Beevor, India Knight, Blake Morrison and Nina Stibbe 'A memoir to stand alongside the classics by the likes of Jeanette Winterson and Lorna Sage ... compelling and ultimately joyous' Sunday Times",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0099511029"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780099511021"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 400,
+    "printType": "BOOK",
+    "categories": [
+     "Ex-cultists"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 63,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "preview-1.0.0",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=MTPmtgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=MTPmtgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=MTPmtgEACAAJ&dq=isbn:9780099511021&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=MTPmtgEACAAJ&dq=isbn:9780099511021&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Educated.html?hl=&id=MTPmtgEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=MTPmtgEACAAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "&#39;An amazing story, and truly inspiring. The kind of book everyone will enjoy. IT&#39;S EVEN BETTER THAN YOU&#39;VE HEARD."
+   }
+  }
+ ]
+}

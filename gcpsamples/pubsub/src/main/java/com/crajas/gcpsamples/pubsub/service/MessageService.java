@@ -15,11 +15,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.crajas.gcpsamples.pubsub.StackdriverTraceConfig;
 import com.crajas.gcpsamples.pubsub.adapter.Listener;
 import com.crajas.gcpsamples.pubsub.adapter.PubsubAdapter;
 
-import io.opencensus.common.Scope;
 import io.opencensus.trace.Tracer;
 import io.opencensus.trace.Tracing;
 /**
@@ -51,9 +49,6 @@ public class MessageService {
 	@Autowired
 	private PubsubAdapter messagingGateway;
 
-	@Autowired
-	private StackdriverTraceConfig sdtConfig;
-	
 	@Value("${gcp.project-id}")
 	private String projectName;
 
@@ -76,13 +71,7 @@ public class MessageService {
 
 	@POST
 	public Response publishMessage(@RequestParam("message") String message) {
-		String spanName = this.getClass().getSimpleName();
-		try (Scope ss = sdtConfig.startSpan(spanName)) {
-
-			messagingGateway.pushWithGCPLibs(projectName, topicName, message);
-			
-			tracer.getCurrentSpan().addAnnotation("Finished posting messages");
-		}
+		messagingGateway.pushWithGCPLibs(projectName, topicName, message);
 		return Response.ok().build();
 	}
 

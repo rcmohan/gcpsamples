@@ -23,9 +23,6 @@ public class App extends SpringBootServletInitializer {
 		return builder.sources(App.class);
 	}
 
-	@Autowired
-	StackdriverTraceConfig config;
-	
 	@EventListener(ContextRefreshedEvent.class)
 	public void contextRefreshedEvent(ContextRefreshedEvent event) {
 
