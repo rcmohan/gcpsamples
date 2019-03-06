@@ -44,13 +44,23 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path</artifactId>
+		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-books -->
 			<version>2.4.0</version>
 		</dependency>
 
+		<!-- REDIS -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<type>jar</type>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>

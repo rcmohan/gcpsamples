@@ -18,6 +18,12 @@ spring:
     sampler:
       probability: 1
 
+cache:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+
 logging:
   level:
     root: INFO
